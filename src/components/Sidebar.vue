@@ -90,7 +90,7 @@
             <div class="flex justify-between items-center">
               <a
                 :href="link.href || '#'"
-                class="block text-lg font-medium text-gray-800 hover:text-green-600 transition hover:scale-103"
+                class="block text-md mx-auto font-medium text-gray-800 hover:text-green-600 transition hover:scale-103"
                 @click="!link.children ? closeMenu() : toggleDropdown(link.label)"
               >
                 {{ link.label }}
