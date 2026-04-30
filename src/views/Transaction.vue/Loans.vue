@@ -10,7 +10,7 @@
       </div>
       <div class="flex gap-3">
         <button @click="openAddModal"
-          class="bg-gradient-to-r from-green-600 to-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:to-green-900 transition shadow">
+          class="bg-linear-to-r from-green-600 to-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:to-green-900 transition shadow">
           + New Loan
         </button>
         <button @click="exportLoans"
@@ -48,9 +48,9 @@
 
     <!-- Loans Table -->
     <div class="bg-white rounded-xl shadow overflow-x-auto">
-      <table class="min-w-full text-sm">
-        <thead class="bg-gray-100 text-gray-700">
-          <tr>
+      <table class="w-full text-sm">
+        <thead class="bg-gray-100 border-b">
+          <tr class="text-gray-600 text-sm">
             <th class="px-5 py-3 text-left">Loan ID</th>
             <th class="px-5 py-3 text-left">Member</th>
             <th class="px-5 py-3 text-right">Amount (₦)</th>
@@ -73,7 +73,7 @@
             <td class="px-5 py-4 text-right" :class="loan.outstandingBalance > 0 ? 'text-red-600 font-semibold' : 'text-gray-400'">
               ₦{{ fmt(loan.outstandingBalance) }}
             </td>
-            <td class="px-5 py-4 text-gray-500 max-w-[140px] truncate">{{ loan.purpose || '—' }}</td>
+            <td class="px-5 py-4 text-gray-500 max-w-35 truncate">{{ loan.purpose || '—' }}</td>
             <td class="px-5 py-4 text-center">
               <span class="px-2 py-1 rounded-full text-xs font-semibold"
                 :class="loan.eligibilityStatus === 'Eligible' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'">
@@ -209,7 +209,7 @@
         </div>
         <div class="flex justify-end gap-3 mt-8">
           <button @click="showModal = false" class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Cancel</button>
-          <button @click="saveLoan" class="px-5 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">
+          <button @click="saveLoan" class="px-5 py-2 bg-linear-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">
             {{ isEditing ? 'Update' : 'Submit Application' }}
           </button>
         </div>
@@ -239,7 +239,7 @@
         </div>
         <div class="flex justify-end gap-3 mt-8">
           <button @click="showRepayModal = false" class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Cancel</button>
-          <button @click="saveRepayment" class="px-5 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold">Save</button>
+          <button @click="saveRepayment" class="px-5 py-2 bg-linear-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold">Save</button>
         </div>
       </div>
     </div>

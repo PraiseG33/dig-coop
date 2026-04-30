@@ -11,7 +11,7 @@
       <div class="flex gap-3">
         <button
           @click="openAddModal"
-          class="bg-gradient-to-r from-green-600 to-green-800 text-white py-2 px-5 rounded-lg font-semibold transition hover:to-green-900 shadow"
+          class="bg-linear-to-r from-green-600 to-green-800 text-white py-2 px-5 rounded-lg font-semibold transition hover:to-green-900 shadow"
         >
           + Record Contribution
         </button>
@@ -57,16 +57,16 @@
     <!-- Contributions Table -->
     <div class="bg-white shadow-md rounded-[20px] overflow-hidden">
       <div class="overflow-x-auto">
-        <table class="w-full">
-          <thead class="bg-green-100 border-b">
-            <tr class="text-gray-600">
-              <th class="font-semibold text-left px-6 py-4">Name</th>
-              <th class="font-semibold text-left px-6 py-4">Member ID</th>
-              <th class="font-semibold text-left px-6 py-4">Amount (₦)</th>
-              <th class="font-semibold text-center px-6 py-4">Type</th>
-              <th class="font-semibold text-center px-6 py-4">Date</th>
-              <th class="font-semibold text-center px-6 py-4">Payment Method</th>
-              <th class="font-semibold text-center px-6 py-4">Status</th>
+        <table class="w-full text-sm">
+          <thead class="bg-gray-100 border-b">
+            <tr class="text-gray-600 text-sm">
+              <th class="text-left px-6 py-4">Name</th>
+              <th class="text-left px-6 py-4">Member ID</th>
+              <th class="text-left px-6 py-4">Amount (₦)</th>
+              <th class="text-center px-6 py-4">Type</th>
+              <th class="text-center px-6 py-4">Date</th>
+              <th class="text-center px-6 py-4">Payment Method</th>
+              <th class="text-center px-6 py-4">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -150,7 +150,7 @@
         </div>
         <div class="flex justify-end gap-3 mt-8">
           <button @click="showModal = false" class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Cancel</button>
-          <button @click="saveContribution" class="px-5 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">Save</button>
+          <button @click="saveContribution" class="px-5 py-2 bg-linear-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">Save</button>
         </div>
       </div>
     </div>

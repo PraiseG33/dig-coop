@@ -102,15 +102,15 @@
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
-          <thead class="bg-gray-50">
+          <thead class="bg-gray-100 border-b">
             <tr class="text-gray-600">
-              <th class="text-left px-6 py-3 font-semibold">Membership ID</th>
-              <th class="text-left px-6 py-3 font-semibold">Member</th>
-              <th class="text-right px-6 py-3 font-semibold">Total Contributions (₦)</th>
-              <th class="text-right px-6 py-3 font-semibold">Savings (₦)</th>
-              <th class="text-center px-6 py-3 font-semibold">Meetings</th>
-              <th class="text-center px-6 py-3 font-semibold">Attendance %</th>
-              <th class="text-center px-6 py-3 font-semibold">Badge</th>
+              <th class="text-left px-6 py-3">Membership ID</th>
+              <th class="text-left px-6 py-3">Member</th>
+              <th class="text-right px-6 py-3">Total Contributions (₦)</th>
+              <th class="text-right px-6 py-3">Savings (₦)</th>
+              <th class="text-center px-6 py-3">Meetings</th>
+              <th class="text-center px-6 py-3">Attendance %</th>
+              <th class="text-center px-6 py-3">Badge</th>
             </tr>
           </thead>
           <tbody>
@@ -152,17 +152,17 @@
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
-          <thead class="bg-gray-50">
+          <thead class="bg-gray-100 border-b">
             <tr class="text-gray-600">
-              <th class="text-left px-6 py-3 font-semibold">Loan ID</th>
-              <th class="text-left px-6 py-3 font-semibold">Member</th>
-              <th class="text-right px-6 py-3 font-semibold">Amount (₦)</th>
-              <th class="text-center px-6 py-3 font-semibold">Interest %</th>
-              <th class="text-right px-6 py-3 font-semibold">Outstanding (₦)</th>
-              <th class="text-left px-6 py-3 font-semibold">Purpose</th>
-              <th class="text-center px-6 py-3 font-semibold">Eligibility</th>
-              <th class="text-center px-6 py-3 font-semibold">Approval</th>
-              <th class="text-center px-6 py-3 font-semibold">Completion</th>
+              <th class="text-left px-6 py-3">Loan ID</th>
+              <th class="text-left px-6 py-3">Member</th>
+              <th class="text-right px-6 py-3">Amount (₦)</th>
+              <th class="text-center px-6 py-3">Interest %</th>
+              <th class="text-right px-6 py-3">Outstanding (₦)</th>
+              <th class="text-left px-6 py-3">Purpose</th>
+              <th class="text-center px-6 py-3">Eligibility</th>
+              <th class="text-center px-6 py-3">Approval</th>
+              <th class="text-center px-6 py-3">Completion</th>
             </tr>
           </thead>
           <tbody>
@@ -218,14 +218,14 @@
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
-          <thead class="bg-gray-50">
+          <thead class="bg-gray-100 border-b">
             <tr class="text-gray-600">
-              <th class="text-left px-6 py-3 font-semibold">Repayment ID</th>
-              <th class="text-left px-6 py-3 font-semibold">Loan ID</th>
-              <th class="text-left px-6 py-3 font-semibold">Member</th>
-              <th class="text-right px-6 py-3 font-semibold">Amount Paid (₦)</th>
-              <th class="text-right px-6 py-3 font-semibold">Updated Balance (₦)</th>
-              <th class="text-center px-6 py-3 font-semibold">Payment Date</th>
+              <th class="text-left px-6 py-3">Repayment ID</th>
+              <th class="text-left px-6 py-3">Loan ID</th>
+              <th class="text-left px-6 py-3">Member</th>
+              <th class="text-right px-6 py-3">Amount Paid (₦)</th>
+              <th class="text-right px-6 py-3">Updated Balance (₦)</th>
+              <th class="text-center px-6 py-3">Payment Date</th>
             </tr>
           </thead>
           <tbody>
@@ -252,14 +252,14 @@
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
-          <thead class="bg-gray-50">
+          <thead class="bg-gray-100 border-b">
             <tr class="text-gray-600">
-              <th class="text-left px-6 py-3 font-semibold">Meeting</th>
-              <th class="text-center px-6 py-3 font-semibold">Date</th>
-              <th class="text-center px-6 py-3 font-semibold">Present</th>
-              <th class="text-center px-6 py-3 font-semibold">Absent</th>
-              <th class="text-center px-6 py-3 font-semibold">Excused</th>
-              <th class="text-center px-6 py-3 font-semibold">Rate</th>
+              <th class="text-left px-6 py-3">Meeting</th>
+              <th class="text-center px-6 py-3">Date</th>
+              <th class="text-center px-6 py-3">Present</th>
+              <th class="text-center px-6 py-3">Absent</th>
+              <th class="text-center px-6 py-3">Excused</th>
+              <th class="text-center px-6 py-3">Rate</th>
             </tr>
           </thead>
           <tbody>

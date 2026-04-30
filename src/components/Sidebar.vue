@@ -77,13 +77,16 @@
         isOpen ? 'translate-x-0' : '-translate-x-full'
       ]"
     >
-      <div class="p-6">
+    <img :src="logoSrc" alt="Logo" class="w-35 mb-5 mt-3"/>
+
+
+      <div class="p-6 border border-gray-200 mx-4 rounded-[20px] shadow-md">
         <!-- Logo -->
-        <img :src="logoSrc" alt="Logo" class="w-37 mb-10" />
+        <!-- <img :src="logoSrc" alt="Logo" class="w-37 mb-10" /> -->
   
         <!-- Navigation Links -->
-        <nav class="px-1 space-y-5">
-          <div v-for="link in navLinks" :key="link.label">
+        <nav class="px-1 py-5 space-y-5">
+          <div v-for="link in navLinks" :key="link.label" class="border border-gray-200 px-3 py-3 rounded-[20px] shadow-md transition hover:shadow-lg">
             <div class="flex justify-between items-center">
               <a
                 :href="link.href || '#'"
@@ -111,7 +114,7 @@
             <!-- Children links -->
             <div
               v-if="link.children && openDropdowns[link.label]"
-              class="pl- mt-1 space-y-3 border border-gray-200 rounded-xl shadow-lg p-3 leading-9"
+              class="pl- mt-1 space-y-3 border border-gray-200 rounded-xl shadow-lg py-4 px-1.5 leading-9"
             >
               <a
                 v-for="child in link.children"
@@ -127,7 +130,7 @@
         </nav>
   
         <!-- Auth Section -->
-        <div class="mt-12 space-y-4">
+        <div class="mt-8 space-y-4">
           <template v-if="authState === 'guest'">
             <a
               href="/login"

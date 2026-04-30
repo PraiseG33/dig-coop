@@ -9,7 +9,7 @@
         <p class="font-semibold text-gray-400">View, Add, Edit or remove cooperative members</p>
       </div>
       <button @click="openAddModal"
-        class="bg-gradient-to-r from-green-600 to-green-800 py-2 px-5 rounded-[10px] text-white font-semibold">
+        class="bg-linear-to-r from-green-600 to-green-800 py-2 px-5 rounded-[10px] text-white font-semibold">
         + Add New Member
       </button>
     </div>
@@ -24,25 +24,25 @@
     <!-- Table -->
     <div class="bg-white shadow-md rounded-[20px] overflow-hidden">
       <div class="overflow-x-auto">
-        <table class="w-full">
-          <thead class="bg-green-100 border-b">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-100 border-b">
             <tr class="text-gray-600 text-sm">
-              <th class="font-semibold text-left px-5 py-4">Membership ID</th>
-              <th class="font-semibold text-left px-5 py-4">Name</th>
-              <th class="font-semibold text-left px-5 py-4">Gender</th>
-              <th class="font-semibold text-left px-5 py-4">Phone</th>
-              <th class="font-semibold text-left px-5 py-4">Email</th>
-              <th class="font-semibold text-right px-5 py-4">Contributions (₦)</th>
-              <th class="font-semibold text-right px-5 py-4">Savings (₦)</th>
-              <th class="font-semibold text-center px-5 py-4">Meetings</th>
-              <th class="font-semibold text-center px-5 py-4">Attendance %</th>
-              <th class="font-semibold text-center px-5 py-4">Badge</th>
-              <th class="font-semibold text-center px-5 py-4">Action</th>
+              <th class="text-left px-5 py-4">Membership ID</th>
+              <th class="text-left px-5 py-4">Name</th>
+              <th class="text-left px-5 py-4">Gender</th>
+              <th class="text-left px-5 py-4">Phone</th>
+              <th class="text-left px-5 py-4">Email</th>
+              <th class="text-right px-5 py-4">Contributions (₦)</th>
+              <th class="text-right px-5 py-4">Savings (₦)</th>
+              <th class="text-center px-5 py-4">Meetings</th>
+              <th class="text-center px-5 py-4">Attendance %</th>
+              <th class="text-center px-5 py-4">Badge</th>
+              <th class="text-center px-5 py-4">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr v-if="filteredMembers.length === 0">
-              <td colspan="11" class="text-center py-12 text-gray-500 text-lg">
+              <td colspan="11" class="text-center py-12 text-gray-500 text-sm">
                 {{ searchQuery ? 'No members found matching your search.' : 'No members added yet.' }}
               </td>
             </tr>
@@ -184,7 +184,7 @@
           <button type="button" @click="closeAddEditModal"
             class="px-6 py-2 border border-gray-400 rounded-lg font-medium hover:bg-gray-100">Cancel</button>
           <button type="button" @click="saveMember"
-            class="px-6 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white font-medium rounded-lg">
+            class="px-6 py-2 bg-linear-to-r from-green-600 to-green-800 text-white font-medium rounded-lg">
             {{ isEditing ? 'Update Member' : 'Add Member' }}
           </button>
         </div>
