@@ -114,13 +114,13 @@
             <!-- Children links -->
             <div
               v-if="link.children && openDropdowns[link.label]"
-              class="pl- mt-1 space-y-3 border border-gray-200 rounded-xl shadow-lg py-4 px-1.5 leading-9"
+              class="mt-1 space-y-3 border border-gray-200 rounded-xl shadow-lg py-4 px-1.5 leading-9"
             >
               <a
                 v-for="child in link.children"
                 :key="child.label"
                 :href="child.href"
-                class="block text-gray-600 font-medium text-lg hover:text-green-600 hover:bg-green-50"
+                class="block text-gray-600 font-medium text-md hover:text-green-600 hover:bg-green-50"
                 @click="closeMenu()"
               >
                 {{ child.label }}
