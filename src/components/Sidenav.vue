@@ -47,7 +47,7 @@ const logout = () => {
   
           <!-- Logo -->
           <div>
-            <img src="/src/assets/images/logo (1).svg" alt="Logo" class="h-10 lg:h-14 w-auto">
+            <img src="/src/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png" alt="Logo" class="h-27 lg:h-30 w-auto">
           </div>
   
           <!-- Desktop Navigation -->

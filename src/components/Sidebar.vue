@@ -14,7 +14,7 @@
     },
     logoSrc: {
       type: String,
-      default: '/src/assets/images/logo (1).svg'
+      default: '/src/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png'
     }
   })
   
@@ -77,7 +77,7 @@
         isOpen ? 'translate-x-0' : '-translate-x-full'
       ]"
     >
-    <img :src="logoSrc" alt="Logo" class="w-35 mb-5 mt-3"/>
+    <img :src="logoSrc" alt="Logo" class="w-35 mx-auto"/>
 
 
       <div class="p-6 border border-gray-200 mx-4 rounded-[20px] shadow-md">
