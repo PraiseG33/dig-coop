@@ -86,7 +86,7 @@
         <div class="absolute inset-0 bg-black/65"></div>
       </div>
   
-      <div class="relative z-10 text-center px-6 sm:px-8 lg:px-0 max-w-5xl mx-auto w-full">
+      <div class="relative z-10 text-center px-6 sm:px-8 lg:px-0 max-w-5xl mx-auto w-full" data-aos="fade-up">
         <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold text-white leading-tight">
           <span class="block">MANAGE YOUR COOPERATIVE</span>
           <span class="block mt-2 bg-linear-to-r from-green-400 to-blue-600 bg-clip-text text-transparent">
@@ -112,7 +112,7 @@
     <!-- About Us Section -->
     <section id="about" class="py-16 sm:py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12" data-aos="fade-up">
           <h2 class="text-3xl sm:text-4xl font-bold text-green-700 ">About Us</h2>
           <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-base sm:text-lg ">
             Learn more about CoopVault and why it was created.
@@ -121,7 +121,7 @@
   
         <div class="bg-white rounded-3xl shadow-lg p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <!-- Text Content -->
-          <div class="order-2 lg:order-1">
+          <div class="order-2 lg:order-1" data-aos="fade-right">
             <h3 class="text-2xl sm:text-3xl font-bold text-green-600 mb-6">
               Simplifying Cooperative Management
             </h3>
@@ -140,7 +140,7 @@
           </div>
   
           <!-- Feature Cards -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 order-1 lg:order-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 order-1 lg:order-2" data-aos="fade-left">
             <div class="p-6 bg-linear-to-br from-green-50 to-green-100 rounded-2xl shadow text-center flex flex-col justify-center items-center min-h-37.5">
               <h4 class="font-bold text-green-700 mb-2 text-lg">Transparency</h4>
               <p class="text-gray-600 text-sm">Clear and accurate records that build trust among members.</p>
@@ -168,19 +168,19 @@
     <!-- Features Section -->
     <section id="features" class="py-16 sm:py-20 bg-white">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12" data-aos="fade-up">
           <h2 class="text-3xl sm:text-4xl font-bold text-green-700">Features</h2>
           <p class="mt-4 text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
             Discover the key capabilities of CoopVault.
           </p>
         </div>
-        <Features :features="features" />
+        <Features :features="features" data-aos="fade-up" data-aos-delay="200"/>
       </div>
     </section>
   
     <!-- CTA Section -->
     <section class="py-16 sm:py-20 px-6">
-      <div class="max-w-5xl mx-auto bg-linear-to-r from-green-600 to-green-800 rounded-3xl px-8 py-12 sm:py-16 text-center text-white shadow-xl">
+      <div class="max-w-5xl mx-auto bg-linear-to-r from-green-600 to-green-800 rounded-3xl px-8 py-12 sm:py-16 text-center text-white shadow-xl" data-aos="zoom-in" data-aos-delay="50">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Build Stronger Cooperatives</h2>
         <p class="text-base sm:text-lg lg:text-2xl mb-10 max-w-3xl mx-auto">
           Embrace the future of cooperation.<br class="hidden sm:block">
@@ -194,7 +194,7 @@
   
     <!-- Partners Section -->
     <section class="py-12 sm:py-16 bg-gray-50">
-      <div class="text-center px-6">
+      <div class="text-center px-6" data-aos="fade-up">
         <h2 class="text-3xl sm:text-4xl font-bold text-green-600 mb-8">Trusted by Our Awesome Partners</h2>
         <div class="flex justify-center items-center">
           <img src="/src/assets/images/download.jpeg" alt="Partners" class="max-w-full h-auto rounded-lg shadow-md">
