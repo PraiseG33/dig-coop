@@ -1,6 +1,6 @@
 <script setup>
   import Sidebar from './Sidebar.vue'
-  import logoSrc from '@/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png'
+  import logoSrc from '@/assets/images/logo.png'
   
   const navLinks = [
   { label: 'Dashboard', href: '/dashboard' },
