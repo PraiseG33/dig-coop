@@ -1,9 +1,7 @@
 <script setup>
-import { RouterView } from 'vue-router'
-import OfflineBanner from '@/components/OfflineBanner.vue'
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <OfflineBanner />
   <RouterView />
 </template>
