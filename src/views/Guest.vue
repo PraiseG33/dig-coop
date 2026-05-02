@@ -1,6 +1,7 @@
 <script setup>
   import Sidebar from '@/components/Sidebar.vue'
   import Features from '@/components/Features.vue'
+  import logoSrc from '@/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png'
   
   const navLinks = [
     { label: 'About Us', href: '#about' },
@@ -68,7 +69,7 @@
             </a>
           </div>
   
-          <Sidebar :nav-links="navLinks" />
+          <Sidebar :nav-links="navLinks" :logo-src="logoSrc"/>
         </div>
       </div>
     </nav>
