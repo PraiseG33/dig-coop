@@ -1,5 +1,6 @@
 <script setup>
   import Sidebar from './Sidebar.vue'
+  import logoSrc from '@/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png'
   
   const navLinks = [
   { label: 'Dashboard', href: '/dashboard' },
@@ -47,7 +48,7 @@ const logout = () => {
   
           <!-- Logo -->
           <div>
-            <img src="/src/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png" alt="Logo" class="h-27 lg:h-30 w-auto">
+            <img :src="logoSrc" alt="Logo" class="h-27 lg:h-30 w-auto">
           </div>
   
           <!-- Desktop Navigation -->

@@ -2,6 +2,7 @@
   import Sidebar from '@/components/Sidebar.vue'
   import Features from '@/components/Features.vue'
   import logoSrc from '@/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png'
+  import penIcon from '@/assets/images/pen.png'
   
   const navLinks = [
     { label: 'About Us', href: '#about' },
@@ -13,22 +14,22 @@
     {
       title: 'Member Management',
       description: 'We make it easy for cooperatives to manage their membership. From registering new members to keeping records up-to-date, we ensure that all member information is accurate and accessible.',
-      icon: '/src/assets/images/pen.png'
+      icon: penIcon
     },
     {
       title: 'Contribution Tracking',
       description: 'Our platform tracks every member’s savings and contributions in real time. This provides clear financial oversight, promotes transparency, and helps organizations maintain trust among members.',
-      icon: '/src/assets/images/pen.png'
+      icon: penIcon
     },
     {
       title: 'Loan Management',
       description: 'Organizations can efficiently manage loan issuance, track balances, and ensure members stay informed about their financial commitments.',
-      icon: '/src/assets/images/pen.png'
+      icon: penIcon
     },
     {
       title: 'Automated Dividend Calculation',
       description: 'We take the guesswork out of profit sharing. Our system calculates dividends automatically based on member contributions and participation, guaranteeing fair and timely distribution.',
-      icon: '/src/assets/images/pen.png'
+      icon: penIcon
     }
   ]
   </script>
