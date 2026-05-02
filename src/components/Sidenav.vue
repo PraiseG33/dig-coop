@@ -107,7 +107,7 @@ const logout = () => {
         </button>
   
           <!-- Mobile Sidebar -->
-          <Sidebar :nav-links="navLinks" auth-state="authenticated" />
+          <Sidebar :nav-links="navLinks" auth-state="authenticated" :logo-src="logoSrc" />
   
         </div>
       </div>

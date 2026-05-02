@@ -14,7 +14,7 @@
     },
     logoSrc: {
       type: String,
-      default: '/src/assets/images/ChatGPT Image May 1, 2026, 07_29_26 PM.png'
+      default: ''
     }
   })
   
