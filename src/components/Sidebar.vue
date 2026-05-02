@@ -77,7 +77,8 @@
         isOpen ? 'translate-x-0' : '-translate-x-full'
       ]"
     >
-    <img :src="logoSrc" alt="Logo" class="w-35 mx-auto"/>
+    <div class="border border-gray-200 shadow-md h-16.5 mb-9"><img :src="logoSrc" alt="Logo" class="w-35 mx-auto"/></div>
+    
 
 
       <div class="p-6 border border-gray-200 mx-4 rounded-[20px] shadow-md">
