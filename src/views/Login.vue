@@ -67,14 +67,14 @@ const handleLogin = () => {
       background-attachment: fixed;
     "
   >
-    <div class="absolute inset-0 bg-black/69"></div>
+    <div class="absolute inset-0 bg-black/75"></div>
 
     <div class="relative z-10 flex lg:flex-row flex-col w-full max-w-6xl">
 
       <!-- Left Info Section -->
       <div class="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start lg:pl-12">
         <div class="hidden lg:flex lg:flex-col items-center lg:items-start text-center lg:text-left max-w-md">
-          <img src="/src/assets/images/logo (1).svg" alt="Logo" />
+          <img src="/src/assets/images/logo.png" alt="Logo" />
           <h1 class="text-[27px] font-semibold text-gray-300 mt-4">
             Empowering Communities Through Digital Cooperatives
           </h1>
@@ -86,7 +86,7 @@ const handleLogin = () => {
         </div>
 
         <div class="lg:hidden flex flex-col items-center text-center mb-5">
-          <img src="/src/assets/images/logo (1).svg" alt="Logo" width="150px" class="mb-3" />
+          <img src="/src/assets/images/logo.png" alt="Logo" width="150px" class="mb-3" />
           <h2 class="text-xl font-semibold text-gray-300">
             Empowering Communities Through Digital Cooperatives
           </h2>
