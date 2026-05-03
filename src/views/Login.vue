@@ -89,7 +89,7 @@ const handleLogin = () => {
         </div>
 
         <div class="lg:hidden flex flex-col items-center text-center mb-5">
-          <img :src="coopLogoLogo" alt="Logo" width="150px" class="mb-3" />
+          <img :src="coopLogo" alt="Logo" width="150px" class="mb-3" />
           <h2 class="text-xl font-semibold text-gray-300">
             Empowering Communities Through Digital Cooperatives
           </h2>
