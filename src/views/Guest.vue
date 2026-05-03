@@ -195,7 +195,7 @@
     <!-- Partners Section -->
     <section class="py-12 sm:py-16 bg-gray-50">
       <div class="text-center px-6" data-aos="fade-up">
-        <h2 class="text-3xl sm:text-4xl font-bold text-green-600 mb-8">Trusted by Our Awesome Partners</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-green-600 mb-8">Trusted by Our Partner</h2>
         <div class="flex justify-center items-center">
           <img src="/src/assets/images/download.jpeg" alt="Partners" class="max-w-full h-auto rounded-lg shadow-md">
         </div>
