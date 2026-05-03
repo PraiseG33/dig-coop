@@ -23,6 +23,7 @@ const props = defineProps({
 
 const isOpen = ref(false)
 const openDropdowns = ref({})
+const activeLink = ref('')
 
 const toggleMenu = () => { isOpen.value = !isOpen.value }
 const closeMenu = () => { isOpen.value = false }
@@ -33,7 +34,6 @@ const toggleDropdown = (label) => {
   openDropdowns.value[label] = !currentState
 }
 
-// Check if a link or any of its children matches current route
 const isActive = (link) => {
   if (link.href && link.href !== '#') {
     return route.path === link.href
@@ -103,7 +103,7 @@ defineExpose({ toggleMenu })
           :key="link.label"
           :class="[
             'border px-3 py-3 rounded-[20px] shadow-md transition hover:shadow-lg',
-            isActive(link)
+            isActive(link) || activeLink === link.href
               ? 'border-green-400 bg-green-50'
               : 'border-gray-200'
           ]"
@@ -113,11 +113,11 @@ defineExpose({ toggleMenu })
               :href="link.href || '#'"
               :class="[
                 'block text-md mx-auto font-medium transition hover:scale-103',
-                isActive(link)
+                isActive(link) || activeLink === link.href
                   ? 'text-green-600 font-semibold'
                   : 'text-gray-800 hover:text-green-600'
               ]"
-              @click="!link.children ? closeMenu() : toggleDropdown(link.label)"
+              @click="activeLink = link.href; !link.children ? closeMenu() : toggleDropdown(link.label)"
             >
               {{ link.label }}
             </a>
@@ -148,7 +148,7 @@ defineExpose({ toggleMenu })
               :key="child.label"
               :href="child.href"
               :class="[
-                'block font-medium text-md transition',
+                'block font-medium text-md transition text-center',
                 isChildActive(child)
                   ? 'text-green-600 bg-green-50 font-semibold px-2 rounded-lg'
                   : 'text-gray-600 hover:text-green-600 hover:bg-green-50'
