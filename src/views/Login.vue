@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import coopLogo from '@/assets/images/cooplogo.png'
+import mobileLogo from '@/assets/images/logo.png'
+import bgImage from '@/assets/images/young-international-people-working-together-use-laptop.jpg'
 
 const router = useRouter()
 
@@ -57,16 +60,16 @@ const handleLogin = () => {
 </script>
 
 <template>
-  <div
-    class="min-h-screen flex items-center justify-center py-10 px-4 lg:px-8 relative overflow-hidden"
-    style="
-      background-image: url('/src/assets/images/young-international-people-working-together-use-laptop.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    "
-  >
+<div
+  class="min-h-screen flex items-center justify-center py-10 px-4 lg:px-8 relative overflow-hidden"
+  :style="{
+    backgroundImage: `url(${bgImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed'
+  }"
+>
     <div class="absolute inset-0 bg-black/70"></div>
 
     <div class="relative z-10 flex lg:flex-row flex-col w-full max-w-6xl">
@@ -74,7 +77,7 @@ const handleLogin = () => {
       <!-- Left Info Section -->
       <div class="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start lg:pl-12">
         <div class="hidden lg:flex lg:flex-col items-center lg:items-start text-center lg:text-left max-w-md">
-          <img src="/src/assets/images/cooplogo.png" alt="Logo" class="-mb-15"/>
+          <img :src="coopLogo" alt="Logo" class="-mb-15"/>
           <h1 class="text-[27px] font-semibold text-gray-300 mt-4">
             Empowering Communities Through Digital Cooperatives
           </h1>
@@ -86,7 +89,7 @@ const handleLogin = () => {
         </div>
 
         <div class="lg:hidden flex flex-col items-center text-center mb-5">
-          <img src="/src/assets/images/logo.png" alt="Logo" width="150px" class="mb-3" />
+          <img :src="mobileLogo" alt="Logo" width="150px" class="mb-3" />
           <h2 class="text-xl font-semibold text-gray-300">
             Empowering Communities Through Digital Cooperatives
           </h2>
