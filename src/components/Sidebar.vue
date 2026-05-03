@@ -32,8 +32,10 @@
   }
   
   const toggleDropdown = (label) => {
-    openDropdowns.value[label] = !openDropdowns.value[label]
-  }
+  const currentState = openDropdowns.value[label]
+  openDropdowns.value = {}
+  openDropdowns.value[label] = !currentState
+}
   
   defineExpose({ toggleMenu })
   </script>
