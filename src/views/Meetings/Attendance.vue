@@ -68,6 +68,12 @@
               Mark Attendance
             </button>
             <button
+              @click="openQRModal(meeting)"
+              class="text-sm border border-green-600 text-green-600 px-3 py-1.5 rounded-lg hover:bg-green-50 transition font-medium"
+            >
+              Show QR Code
+            </button>
+            <button
               @click="deleteMeeting(meeting.id)"
               class="text-sm border border-red-400 text-red-500 px-3 py-1.5 rounded-lg hover:bg-red-50 transition font-medium"
             >
@@ -213,6 +219,30 @@
       </div>
     </div>
 
+    <!-- QR Code Modal -->
+<div
+  v-if="showQRModal && qrMeeting"
+  class="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+  @click.self="showQRModal = false"
+>
+  <div class="bg-white rounded-xl p-8 w-full max-w-sm mx-4 shadow-xl text-center">
+    <h3 class="text-xl font-bold mb-1">Meeting QR Code</h3>
+    <p class="text-gray-500 text-sm mb-6">
+      {{ qrMeeting.title }} — {{ formatDate(qrMeeting.date) }}
+    </p>
+    <img :src="qrImageUrl" alt="QR Code" class="w-64 h-64 mx-auto rounded-lg" />
+    <p class="text-xs text-gray-400 mt-4">
+      Members scan this code to check in automatically
+    </p>
+    <button
+      @click="showQRModal = false"
+      class="mt-6 px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium"
+    >
+      Close
+    </button>
+  </div>
+</div>
+
   </div>
 </template>
 
@@ -220,6 +250,7 @@
 import { ref, computed, watch } from 'vue';
 import Sidenav from '@/components/Sidenav.vue';
 import { useMembers } from '@/composables/useMembers';
+import QRCode from 'qrcode'
 
 const { members } = useMembers();
 
@@ -316,6 +347,16 @@ const deleteMeeting = (id) => {
 const showAttendanceModal = ref(false);
 const selectedMeeting = ref(null);
 const attendanceEdits = ref({});
+const showQRModal = ref(false)
+const qrImageUrl = ref('')
+const qrMeeting = ref(null)
+
+const openQRModal = async (meeting) => {
+  qrMeeting.value = meeting
+  const checkInUrl = `${window.location.origin}/checkin?meetingId=${meeting.id}&date=${meeting.date}&meetingTitle=${encodeURIComponent(meeting.title)}`
+  qrImageUrl.value = await QRCode.toDataURL(checkInUrl, { width: 300 })
+  showQRModal.value = true
+};
 
 const openAttendanceModal = (meeting) => {
   selectedMeeting.value = meeting;
