@@ -283,6 +283,67 @@
       </div>
     </div>
 
+    <!-- Section 5: Dividend Distribution -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden">
+  <div class="px-6 py-4 border-b border-gray-100 flex items-center gap-2">
+    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+    <h2 class="font-semibold text-gray-800">Dividend Distribution Report</h2>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead class="bg-gray-100 border-b">
+        <tr class="text-gray-600">
+          <th class="text-left px-6 py-3">Member</th>
+          <th class="text-left px-6 py-3">Period</th>
+          <th class="text-right px-6 py-3">Total Contribution (₦)</th>
+          <th class="text-center px-6 py-3">Attendance Score</th>
+          <th class="text-right px-6 py-3">Dividend Amount (₦)</th>
+          <th class="text-center px-6 py-3">Distribution Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="d in dividends"
+          :key="d.id"
+          class="border-t border-gray-100 hover:bg-gray-50"
+        >
+          <td class="px-6 py-3 font-medium text-gray-800">{{ d.memberName }}</td>
+          <td class="px-6 py-3 text-gray-500">{{ d.period }}</td>
+          <td class="px-6 py-3 text-right">₦{{ fmt(d.totalContribution) }}</td>
+          <td class="px-6 py-3 text-center">{{ d.attendanceScore }}%</td>
+          <td class="px-6 py-3 text-right font-semibold text-yellow-700">
+            ₦{{ fmt(d.dividendAmount) }}
+          </td>
+          <td class="px-6 py-3 text-center">
+            <span
+              class="text-xs px-2 py-0.5 rounded-full"
+              :class="d.distributionStatus === 'Distributed'
+                ? 'bg-green-100 text-green-700'
+                : 'bg-yellow-100 text-yellow-700'"
+            >
+              {{ d.distributionStatus || 'Pending' }}
+            </span>
+          </td>
+        </tr>
+        <tr v-if="!dividends.length">
+          <td colspan="6" class="text-center py-10 text-gray-400">
+            No dividend records found.
+          </td>
+        </tr>
+      </tbody>
+      <tfoot v-if="dividends.length" class="bg-gray-50 border-t-2 border-gray-200">
+        <tr>
+          <td colspan="4" class="px-6 py-3 font-semibold text-gray-700">Total Dividends</td>
+          <td class="px-6 py-3 text-right font-bold text-yellow-700">
+            ₦{{ fmt(totalDividends) }}
+          </td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
   </div>
 </template>
 
@@ -295,6 +356,10 @@ const { members } = useMembers();
 const meetings = ref(JSON.parse(localStorage.getItem('cooperativeMeetings') || '[]'));
 const loans = ref(JSON.parse(localStorage.getItem('cooperativeLoans') || '[]'));
 const repayments = ref(JSON.parse(localStorage.getItem('cooperativeLoanRepayments') || '[]'));
+const dividends = ref(JSON.parse(localStorage.getItem('cooperativeDividends') || '[]'))
+const totalDividends = computed(() =>
+  dividends.value.reduce((s, d) => s + Number(d.dividendAmount || 0), 0)
+)
 
 const now = new Date().toLocaleDateString('en-NG', { day: 'numeric', month: 'long', year: 'numeric' });
 

@@ -197,6 +197,66 @@
         </div>
       </div>
 
+      <!-- Dividends -->
+<div class="bg-white rounded-xl shadow-md p-6 flex flex-col gap-4">
+  <div class="flex items-center gap-3">
+    <div class="bg-yellow-100 p-3 rounded-full">
+      <svg class="w-7 h-7 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+    </div>
+    <div>
+      <h2 class="text-lg font-semibold text-gray-800">Dividends</h2>
+      <p class="text-sm text-gray-500">{{ dividends.length }} records</p>
+    </div>
+  </div>
+  <p class="text-sm text-gray-600">
+    Member dividend allocations: period, total contribution, attendance score,
+    dividend amount, and distribution status.
+  </p>
+  <div class="flex gap-3 mt-auto">
+    <button
+      @click="previewSection = previewSection === 'dividends' ? null : 'dividends'"
+      class="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg text-sm font-medium hover:bg-gray-50"
+    >
+      {{ previewSection === 'dividends' ? 'Hide' : 'Preview' }}
+    </button>
+    <button
+      @click="exportDividends"
+      class="flex-1 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-2 rounded-lg text-sm font-semibold hover:to-yellow-700"
+    >
+      Export CSV
+    </button>
+  </div>
+  <div
+    v-if="previewSection === 'dividends'"
+    class="overflow-x-auto text-xs border border-gray-100 rounded-lg bg-gray-50 p-3 max-h-52 overflow-y-auto"
+  >
+    <table class="w-full">
+      <thead>
+        <tr class="text-gray-500 border-b">
+          <th class="text-left py-1 pr-3">Member</th>
+          <th class="text-left py-1 pr-3">Period</th>
+          <th class="text-right py-1 pr-3">Amount (₦)</th>
+          <th class="text-center py-1">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="d in dividends" :key="d.id" class="border-b border-gray-100">
+          <td class="py-1 pr-3 font-medium">{{ d.memberName }}</td>
+          <td class="py-1 pr-3 text-gray-500">{{ d.period }}</td>
+          <td class="py-1 pr-3 text-right">₦{{ fmt(d.dividendAmount) }}</td>
+          <td class="py-1 text-center">{{ d.distributionStatus || 'Pending' }}</td>
+        </tr>
+        <tr v-if="!dividends.length">
+          <td colspan="4" class="py-3 text-center text-gray-400">No dividend records.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
       <!-- Full Report -->
       <div class="bg-white rounded-xl shadow-md p-6 flex flex-col gap-4 sm:col-span-2">
         <div class="flex items-center gap-3">
@@ -248,6 +308,7 @@ const meetings = ref(JSON.parse(localStorage.getItem('cooperativeMeetings') || '
 const loans = ref(JSON.parse(localStorage.getItem('cooperativeLoans') || '[]'));
 const repayments = ref(JSON.parse(localStorage.getItem('cooperativeLoanRepayments') || '[]'));
 const contributions = ref(JSON.parse(localStorage.getItem('cooperativeContributions') || '[]'));
+const dividends = ref(JSON.parse(localStorage.getItem('cooperativeDividends') || '[]'))
 
 const previewSection = ref(null);
 const toastMsg = ref('');
@@ -323,6 +384,17 @@ const exportAttendance = () => {
   dl('attendance.csv', rows);
 };
 
+const exportDividends = () => {
+  if (!dividends.value.length) { showToast('No dividend records to export.'); return; }
+  dl('dividends.csv', [
+    'Member,Period,Total Contribution (N),Attendance Score (%),Dividend Amount (N),Distribution Status',
+    ...dividends.value.map(d =>
+      [d.memberName, d.period, d.totalContribution, d.attendanceScore,
+       d.dividendAmount, d.distributionStatus || 'Pending'].join(',')
+    )
+  ])
+}
+
 const exportAll = () => {
   const ts = new Date().toLocaleDateString('en-NG');
   const rows = [
@@ -364,7 +436,14 @@ const exportAll = () => {
         const m = members.value.find(mb => mb.id === rec.memberId);
         return [mtg.title, mtg.date, m ? m.name : rec.memberId, rec.status, rec.method].join(',');
       })
-    )
+    ),
+    '',
+'=== DIVIDENDS ===',
+'Member,Period,Total Contribution (N),Attendance Score (%),Dividend Amount (N),Status',
+...dividends.value.map(d =>
+  [d.memberName, d.period, d.totalContribution, d.attendanceScore,
+   d.dividendAmount, d.distributionStatus || 'Pending'].join(',')
+)
   ];
   dl('cooperative-full-report.csv', rows);
 };
