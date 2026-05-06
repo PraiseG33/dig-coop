@@ -1,6 +1,6 @@
 <template>
   <Sidenav />
-  <div class="mx-4 lg:mx-20 my-6 flex flex-col gap-6">
+  <div class="mx-4 lg:mx-20 my-6 flex flex-col gap-6" data-aos="fade-in" data-aos-delay="20"gi>
 
     <!-- Header -->
     <div>

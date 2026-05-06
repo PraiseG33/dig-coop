@@ -3,7 +3,7 @@
   <div class="mx-4 lg:mx-20 my-6 flex flex-col gap-6">
 
     <!-- Header -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" data-aos="fade-in" data-aos-delay="20">
       <div>
         <h1 class="text-[27px] font-medium">Financial Summary</h1>
         <p class="text-gray-600 mt-1">Overview of contributions, loans, repayments, attendance, and dividends.</p>

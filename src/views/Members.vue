@@ -3,7 +3,7 @@
   <div class="mx-4 lg:mx-20 my-6 flex flex-col gap-8">
 
     <!-- Header -->
-    <div class="flex flex-col lg:flex-row justify-between items-start gap-6">
+    <div class="flex flex-col lg:flex-row justify-between items-start gap-6" data-aos="fade-in" data-aos-delay="20">
       <div>
         <h1 class="text-[27px] font-medium">Members Management</h1>
         <p class="font-semibold text-gray-400">View, Add, Edit or remove cooperative members</p>

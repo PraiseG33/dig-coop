@@ -3,14 +3,14 @@
   <div class="mx-4 lg:mx-20 my-6 flex flex-col gap-6">
 
     <!-- Header -->
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" data-aos="fade-in" data-aos-delay="20">
       <div>
         <h1 class="text-[27px] font-medium">Dividends</h1>
         <p class="text-gray-600 mt-1">Attendance-weighted dividend computation for all cooperative members.</p>
       </div>
       <div class="flex gap-3">
         <button @click="computeDividends"
-          class="bg-gradient-to-r from-green-600 to-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:to-green-900 transition shadow">
+          class="bg-linear-to-r from-green-600 to-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:to-green-900 transition shadow">
           Compute Dividends
         </button>
         <button @click="exportDividends"

@@ -3,7 +3,7 @@
   <div class="mx-4 lg:mx-20 my-6">
 
     <!-- Header + Export Button -->
-    <div class="flex flex-col lg:flex-row justify-between items-start mb-6 gap-4">
+    <div class="flex flex-col lg:flex-row justify-between items-start mb-6 gap-4" data-aos="fade-in" data-aos-delay="20">
       <div>
         <h1 class="text-[27px] font-medium">Member Contributions</h1>
         <p class="text-gray-600 mt-1">Record and track all cooperative contributions.</p>
