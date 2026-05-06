@@ -10,7 +10,7 @@
       </div>
       <button
         @click="openNewMeetingModal"
-        class="bg-gradient-to-r from-green-600 to-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:to-green-900 transition shadow"
+        class="bg-linear-to-r from-green-600 to-green-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:to-green-900 transition shadow"
       >
         + New Meeting Session
       </button>
@@ -158,7 +158,7 @@
         </div>
         <div class="flex justify-end gap-3 mt-8">
           <button @click="showNewMeetingModal = false" class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Cancel</button>
-          <button @click="createMeeting" class="px-5 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">Create Session</button>
+          <button @click="createMeeting" class="px-5 py-2 bg-linear-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">Create Session</button>
         </div>
       </div>
     </div>
@@ -208,7 +208,7 @@
 
         <div class="flex justify-end gap-3 mt-8">
           <button @click="showAttendanceModal = false" class="px-5 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Cancel</button>
-          <button @click="saveAttendance" class="px-5 py-2 bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">Save Attendance</button>
+          <button @click="saveAttendance" class="px-5 py-2 bg-linear-to-r from-green-600 to-green-800 text-white rounded-lg font-semibold hover:to-green-900">Save Attendance</button>
         </div>
       </div>
     </div>

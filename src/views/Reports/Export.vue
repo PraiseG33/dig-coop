@@ -32,7 +32,7 @@
             {{ previewSection === 'members' ? 'Hide' : 'Preview' }}
           </button>
           <button @click="exportMembers"
-            class="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 rounded-lg text-sm font-semibold hover:to-blue-800">
+            class="flex-1 bg-linear-to-r from-blue-600 to-blue-700 text-white py-2 rounded-lg text-sm font-semibold hover:to-blue-800">
             Export CSV
           </button>
         </div>
@@ -80,7 +80,7 @@
             {{ previewSection === 'loans' ? 'Hide' : 'Preview' }}
           </button>
           <button @click="exportLoans"
-            class="flex-1 bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2 rounded-lg text-sm font-semibold hover:to-blue-900">
+            class="flex-1 bg-linear-to-r from-blue-600 to-blue-800 text-white py-2 rounded-lg text-sm font-semibold hover:to-blue-900">
             Export CSV
           </button>
         </div>
@@ -126,7 +126,7 @@
             {{ previewSection === 'contributions' ? 'Hide' : 'Preview' }}
           </button>
           <button @click="exportContributions"
-            class="flex-1 bg-gradient-to-r from-green-600 to-green-800 text-white py-2 rounded-lg text-sm font-semibold hover:to-green-900">
+            class="flex-1 bg-linear-to-r from-green-600 to-green-800 text-white py-2 rounded-lg text-sm font-semibold hover:to-green-900">
             Export CSV
           </button>
         </div>
@@ -172,7 +172,7 @@
             {{ previewSection === 'attendance' ? 'Hide' : 'Preview' }}
           </button>
           <button @click="exportAttendance"
-            class="flex-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white py-2 rounded-lg text-sm font-semibold hover:to-purple-900">
+            class="flex-1 bg-linear-to-r from-purple-600 to-purple-800 text-white py-2 rounded-lg text-sm font-semibold hover:to-purple-900">
             Export CSV
           </button>
         </div>
@@ -224,7 +224,7 @@
     </button>
     <button
       @click="exportDividends"
-      class="flex-1 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-2 rounded-lg text-sm font-semibold hover:to-yellow-700"
+      class="flex-1 bg-linear-to-r from-yellow-500 to-yellow-600 text-white py-2 rounded-lg text-sm font-semibold hover:to-yellow-700"
     >
       Export CSV
     </button>
@@ -281,7 +281,7 @@
             {{ meetings.length }} meetings
           </p>
           <button @click="exportAll"
-            class="bg-gradient-to-r from-orange-500 to-orange-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:to-orange-800">
+            class="bg-linear-to-r from-orange-500 to-orange-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:to-orange-800">
             Export Full Report CSV
           </button>
         </div>
