@@ -108,7 +108,7 @@ const logout = () => {
                   'block px-4 py-3 text-sm font-medium transition-colors',
                   route.path === child.href
                     ? 'text-green-600 bg-green-50 font-semibold'
-                    : 'text-gray-700 hover:bg-green-50 hover:text-green-600'
+                    : 'text-gray-700 hover:text-green-600'
                 ]"
               >
                 {{ child.label }}
