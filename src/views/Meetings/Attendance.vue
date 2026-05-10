@@ -6,7 +6,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" data-aos="fade-in" data-aos-delay="20">
       <div>
         <h1 class="text-[27px] font-medium">Attendance</h1>
-        <p class="text-gray-600 mt-1">Record and monitor member attendance at cooperative meetings.</p>
+        <p class="font-semibold text-gray-400">Record and monitor member attendance at cooperative meetings.</p>
       </div>
       <button
         @click="openNewMeetingModal"

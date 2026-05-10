@@ -6,7 +6,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" data-aos="fade-in" data-aos-delay="20">
       <div>
         <h1 class="text-[27px] font-medium">Financial Summary</h1>
-        <p class="text-gray-600 mt-1">Overview of contributions, loans, repayments, attendance, and dividends.</p>
+        <p class="font-semibold text-gray-400">Overview of contributions, loans, repayments, attendance, and dividends.</p>
       </div>
       <button @click="printReport"
         class="border border-green-600 text-green-700 px-5 py-2.5 rounded-lg font-semibold hover:bg-green-50 transition">

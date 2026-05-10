@@ -5,7 +5,7 @@
     <!-- Header -->
     <div>
       <h1 class="text-[27px] font-medium">Export Data</h1>
-      <p class="text-gray-600 mt-1">Download cooperative records as CSV files for offline use or external reporting.</p>
+      <p class="font-semibold text-gray-400">Download cooperative records as CSV files for offline use or external reporting.</p>
     </div>
 
     <!-- Export Cards -->

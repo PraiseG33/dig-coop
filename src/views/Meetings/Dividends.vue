@@ -6,7 +6,7 @@
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4" data-aos="fade-in" data-aos-delay="20">
       <div>
         <h1 class="text-[27px] font-medium">Dividends</h1>
-        <p class="text-gray-600 mt-1">Attendance-weighted dividend computation for all cooperative members.</p>
+        <p class="font-semibold text-gray-400">Attendance-weighted dividend computation for all cooperative members.</p>
       </div>
       <div class="flex gap-3">
         <button @click="computeDividends"
