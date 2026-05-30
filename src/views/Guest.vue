@@ -216,7 +216,7 @@
           <p class="font-bold text-xl mb-4">Company</p>
           <a href="#about" class="block mb-2 hover:underline text-sm sm:text-base">About Us</a>
           <a href="#features" class="block mb-2 hover:underline text-sm sm:text-base">Features</a>
-          <a href="#contact" class="block mb-2 hover:underline text-sm sm:text-base">Contact</a>
+          <a href="#contact" class="block mb-2 hover:underline text-sm sm:text-base">Contact Us</a>
         </div>
   
         <div>
