@@ -11,7 +11,7 @@ const routeList = [
     name: 'Login',
     component: () => import('@/views/Login.vue'),
   },
-  // /signup route removed — member registration is admin-only (Members page)
+
   {
     path: '/dashboard',
     name: 'Dashboard',
@@ -64,7 +64,6 @@ const routeList = [
     path: '/signup',
     name: 'signup',
     component: () => import('@/views/Signup.vue'),
-    meta: { requiresAuth: true },
   }
 ]
 
