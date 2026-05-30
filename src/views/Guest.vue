@@ -209,7 +209,7 @@
           <h3 class="font-bold text-xl mb-4">Contact</h3>
           <p class="mb-2 text-sm sm:text-base">+2348153021298, +2347088527839</p>
           <a href="" class="mb-2 text-sm hover:underline sm:text-base">Email: info@coopvault.com</a>
-          <div class="mt-2"><a href="" class="text-sm hover:underline sm:text-base">Instagram | Facebook | Youtube</a></div>
+          <div class="mt-2"><a href="" class="text-sm hover:underline sm:text-base">Instagram | Facebook | WhatsApp</a></div>
         </div>
   
         <div>
@@ -229,9 +229,7 @@
         <div>
           <p class="font-bold text-xl mb-4">Address</p>
           <p class="leading-relaxed text-sm sm:text-base">
-            Delta State Innovation Hub<br>
-            #1, DBS Junction, Okpanam Road<br>
-            Beside Zenith Bank Plc, Asaba.
+            Delta State, Agbor<br>
           </p>
 
           <div class="mt-10">
