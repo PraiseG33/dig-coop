@@ -1,35 +1,18 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
 import Sidebar from './Sidebar.vue'
+import { ref, computed } from 'vue' 
 import logoSrc from '@/assets/images/logo.png'
 
 const route = useRoute()
 const router = useRouter()
 
 const navLinks = [
-  { label: 'Dashboard', href: '/dashboard' },
-  { label: 'Members', href: '/members' },
-  { 
-    label: 'Transactions',
-    children: [
-      { label: 'Contributi~ons', href: '/contributions' },
-      { label: 'Loans', href: '/loans' }
-    ]
-  },
-  { 
-    label: 'Meetings',
-    children: [
-      { label: 'Attendance', href: '/attendance' },
-      { label: 'Dividends', href: '/dividends' }
-    ]
-  },
-  { 
-    label: 'Reports',
-    children: [
-      { label: 'Financial Summary', href: '/financial' },
-      { label: 'Export Data', href: '/export' }
-    ]
-  },
+  { label: 'Dashboard', href: '/portal/dashboard' },
+  { label: 'Contributions', href: '/portal/contributions' },
+  { label: 'Loans', href: '/portal/loans' },
+  { label: 'Attendance', href: '/portal/attendance' },
+  { label: 'Dividends', href: '/portal/dividends' },
   { label: 'Settings', href: '#' }
 ]
 
@@ -49,6 +32,12 @@ const logout = () => {
   sessionStorage.removeItem('dcms_session')
   router.replace('/')
 }
+
+const session = computed(() => {
+  const raw = localStorage.getItem('dcms_session') || sessionStorage.getItem('dcms_session')
+  try { return raw ? JSON.parse(raw) : {} } catch { return {} }
+})
+
 </script>
 
 <template>
@@ -56,9 +45,10 @@ const logout = () => {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16 lg:h-20">
 
-        <!-- Logo -->
-        <div>
+        <!-- Logo + Badge (grouped so they sit together, not spread apart by justify-between) -->
+        <div class="flex items-center gap-3">
           <img :src="logoSrc" alt="Logo" class="h-27 lg:h-30 w-auto">
+          <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full hidden sm:inline">Member Portal</span>
         </div>
 
         <!-- Desktop Navigation -->
@@ -117,18 +107,26 @@ const logout = () => {
           </div>
         </div>
 
-        <!-- Desktop Logout -->
-        <button
-          @click="logout"
-          class="hidden lg:block px-3 py-2 text-[13px] text-center text-red-600
-                 border border-red-600 rounded-lg hover:bg-red-50 font-semibold
-                 transition hover:scale-103"
-        >
-          Logout
-        </button>
+        <!-- Logged-in name + Logout (grouped, hidden on mobile) -->
+        <div class="hidden lg:flex items-center gap-4">
+          <p class="text-xs text-gray-500">Logged in as <strong>{{ session.memberName }}</strong></p>
+          <button
+            @click="logout"
+            class="px-3 py-2 text-[13px] text-center text-red-600
+                   border border-red-600 rounded-lg hover:bg-red-50 font-semibold
+                   transition hover:scale-103"
+          >
+            Logout
+          </button>
+        </div>
 
         <!-- Mobile Sidebar -->
-        <Sidebar :nav-links="navLinks" auth-state="authenticated" :logo-src="logoSrc" />
+        <Sidebar
+          :nav-links="navLinks"
+          auth-state="authenticated"
+          :logo-src="logoSrc"
+          :user-name="session.memberName"
+        />
 
       </div>
     </div>
