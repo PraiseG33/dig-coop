@@ -12,7 +12,7 @@ const navLinks = [
   { 
     label: 'Transactions',
     children: [
-      { label: 'Contributi~ons', href: '/contributions' },
+      { label: 'Contributions', href: '/contributions' },
       { label: 'Loans', href: '/loans' }
     ]
   },

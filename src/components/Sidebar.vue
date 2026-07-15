@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
+const router = useRouter()
 
 const props = defineProps({
   navLinks: {
@@ -16,6 +17,10 @@ const props = defineProps({
     validator: (v) => ['guest', 'authenticated'].includes(v)
   },
   logoSrc: {
+    type: String,
+    default: ''
+  },
+  userName: {
     type: String,
     default: ''
   }
@@ -46,6 +51,13 @@ const isActive = (link) => {
 
 const isChildActive = (child) => {
   return route.path === child.href
+}
+
+const handleLogout = () => {
+  localStorage.removeItem('dcms_session')
+  sessionStorage.removeItem('dcms_session')
+  closeMenu()
+  router.replace('/')
 }
 
 defineExpose({ toggleMenu })
@@ -183,14 +195,16 @@ defineExpose({ toggleMenu })
         </template>
 
         <template v-else-if="authState === 'authenticated'">
-          <a
-            href="/"
-            class="block px-6 py-3 text-center text-red-600 border border-red-600 rounded-lg
+          <p v-if="userName" class="text-center text-sm text-gray-500">
+            Logged in as <span class="font-semibold text-gray-800">{{ userName }}</span>
+          </p>
+          <button
+            @click="handleLogout"
+            class="w-full block px-6 py-3 text-center text-red-600 border border-red-600 rounded-lg
             hover:bg-red-50 font-semibold transition hover:scale-103"
-            @click="closeMenu"
           >
             Logout
-          </a>
+          </button>
         </template>
       </div>
     </div>

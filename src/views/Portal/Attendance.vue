@@ -16,7 +16,7 @@ const totalMeetings = computed(() => meetings.value.length)
 const attended = computed(() => Number(member.value.meetingsAttended || 0))
 const missed = computed(() => Math.max(0, totalMeetings.value - attended.value))
 const attendancePct = computed(() =>
-  totalMeetings.value ? Math.round((attended.value / totalMeetings.value) * 100) : 0
+  totalMeetings.value ? Math.min(100, Math.round((attended.value / totalMeetings.value) * 100)) : 0
 )
 
 const statusLabel = computed(() => {

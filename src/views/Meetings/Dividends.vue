@@ -115,7 +115,13 @@
               class="border-b border-gray-100 hover:bg-gray-50">
               <td class="px-5 py-4 font-mono text-gray-400 text-xs">{{ row.dividendId }}</td>
               <td class="px-5 py-4 text-center text-gray-500 font-medium">{{ idx + 1 }}</td>
-              <td class="px-5 py-4 font-medium text-gray-800">{{ row.memberName }}</td>
+              <td class="px-5 py-4 font-medium text-gray-800">
+                {{ row.memberName }}
+                <span v-if="row.dataFlag" :title="row.dataFlag"
+                  class="ml-1 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-600 cursor-help">
+                  ⚠ Review
+                </span>
+              </td>
               <td class="px-5 py-4 text-right">₦{{ fmt(row.totalContributionAmount) }}</td>
               <td class="px-5 py-4 text-center">{{ row.meetingsAttended }} / {{ totalMeetings }}</td>
               <td class="px-5 py-4 text-center">
@@ -240,11 +246,12 @@ const computeDividends = () => {
   const records = members.value.map(m => {
     const contrib = Number(m.totalContributions || 0);
     const attended = Number(m.meetingsAttended || 0);
-    const attendScore = Math.round((attended / totalMeetings.value) * 100);
+    const attendRatio = Math.min(1, attended / totalMeetings.value);
+    const attendScore = Math.round(attendRatio * 100);
     const dividend = Math.round(
       dividendPool.value * (
         contribWeight.value * (contrib / totalContributions.value) +
-        attendWeight.value * (attended / totalMeetings.value)
+        attendWeight.value * attendRatio
       )
     );
     return {

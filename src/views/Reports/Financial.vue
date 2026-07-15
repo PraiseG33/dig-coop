@@ -398,7 +398,7 @@ const avgAttendance = computed(() => {
 });
 
 const attendPct = (m) =>
-  Math.round((Number(m.meetingsAttended || 0) / totalMeetings.value) * 100);
+  Math.min(100, Math.round((Number(m.meetingsAttended || 0) / totalMeetings.value) * 100));
 
 const countStatus = (mtg, status) =>
   (mtg.records || []).filter(r => r.status === status).length;

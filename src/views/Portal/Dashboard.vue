@@ -31,7 +31,7 @@ const meetings = computed(() => JSON.parse(localStorage.getItem('cooperativeMeet
 
 const totalMeetings = computed(() => meetings.value.length || 1)
 const attendancePct = computed(() =>
-  Math.round((Number(member.value.meetingsAttended || 0) / totalMeetings.value) * 100)
+  Math.min(100, Math.round((Number(member.value.meetingsAttended || 0) / totalMeetings.value) * 100))
 )
 
 const activeLoans = computed(() => loans.value.filter(l => l.status !== 'Fully Paid'))
@@ -42,6 +42,17 @@ const fmt = n => Number(n || 0).toLocaleString()
 const recentContributions = computed(() =>
   [...contributions.value].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5)
 )
+
+const rankedMembers = computed(() =>
+  [...members.value].sort((a, b) => (Number(b.totalContributions) || 0) - (Number(a.totalContributions) || 0))
+)
+
+const leaderboard = computed(() => rankedMembers.value.slice(0, 5))
+
+const myRank = computed(() => {
+  const idx = rankedMembers.value.findIndex(m => m.id === session.value.memberId)
+  return idx === -1 ? null : idx + 1
+})
 </script>
 
 <template>
@@ -118,6 +129,42 @@ const recentContributions = computed(() =>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Engagement Leaderboard -->
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-xl font-semibold flex items-center gap-2">
+          <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.963a1 1 0 00.95.69h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.963c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.963a1 1 0 00-.364-1.118L2.317 9.38c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.963z"/>
+          </svg>
+          Engagement Leaderboard
+        </h2>
+        <span v-if="myRank" class="text-sm font-medium text-gray-500">
+          Your rank: <span class="text-green-700 font-semibold">#{{ myRank }}</span> of {{ rankedMembers.length }}
+        </span>
+      </div>
+      <ol v-if="leaderboard.length" class="space-y-3">
+        <li
+          v-for="(m, index) in leaderboard"
+          :key="m.id"
+          class="flex items-center justify-between p-3 rounded-lg transition"
+          :class="m.id === session.memberId ? 'bg-green-50 ring-1 ring-green-200' : 'bg-gray-50 hover:bg-gray-100'"
+        >
+          <div class="flex items-center gap-3">
+            <span
+              class="text-lg font-bold w-7 h-7 flex items-center justify-center rounded-full"
+              :class="index === 0 ? 'bg-yellow-400 text-white' : index === 1 ? 'bg-gray-300 text-white' : index === 2 ? 'bg-amber-600 text-white' : 'text-gray-500'"
+            >{{ index + 1 }}</span>
+            <div>
+              <p class="font-medium">{{ m.name }}{{ m.id === session.memberId ? ' (You)' : '' }}</p>
+              <p class="text-sm text-gray-500">Badge: {{ m.badge || 'New Member' }}</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500">{{ m.meetingsAttended || 0 }} meetings</p>
+        </li>
+      </ol>
+      <p v-else class="text-gray-400 text-sm text-center py-8">Leaderboard will appear once members start contributing.</p>
     </div>
 
     <!-- Recent Contributions -->
