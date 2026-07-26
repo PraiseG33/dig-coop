@@ -28,7 +28,6 @@ const props = defineProps({
 
 const isOpen = ref(false)
 const openDropdowns = ref({})
-const activeLink = ref('')
 
 const toggleMenu = () => { isOpen.value = !isOpen.value }
 const closeMenu = () => { isOpen.value = false }
@@ -98,7 +97,7 @@ defineExpose({ toggleMenu })
   <!-- Sidebar Drawer -->
   <div
     :class="[
-      'fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto',
+      'fixed top-0 left-0 h-full w-72 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto lg:hidden',
       isOpen ? 'translate-x-0' : '-translate-x-full'
     ]"
   >
@@ -115,24 +114,37 @@ defineExpose({ toggleMenu })
           :key="link.label"
           :class="[
             'border px-3 py-3 rounded-[20px] shadow-md transition hover:shadow-lg',
-            isActive(link) || activeLink === link.href
+            isActive(link)
               ? 'border-green-400 bg-green-50'
               : 'border-gray-200'
           ]"
         >
           <div class="flex justify-between items-center">
             <a
-              :href="link.href || '#'"
+              v-if="!link.children"
+              :href="link.href"
               :class="[
                 'block text-md mx-auto font-medium transition hover:scale-103',
-                isActive(link) || activeLink === link.href
+                isActive(link)
                   ? 'text-green-600 font-semibold'
                   : 'text-gray-800 hover:text-green-600'
               ]"
-              @click="activeLink = link.href; !link.children ? closeMenu() : toggleDropdown(link.label)"
+              @click="closeMenu()"
             >
               {{ link.label }}
             </a>
+            <span
+              v-else
+              :class="[
+                'block text-md mx-auto font-medium cursor-default select-none',
+                isActive(link)
+                  ? 'text-green-600 font-semibold'
+                  : 'text-gray-800'
+              ]"
+              @click="toggleDropdown(link.label)"
+            >
+              {{ link.label }}
+            </span>
 
             <!-- Dropdown toggle button -->
             <button

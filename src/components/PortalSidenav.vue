@@ -13,7 +13,7 @@ const navLinks = [
   { label: 'Loans', href: '/portal/loans' },
   { label: 'Attendance', href: '/portal/attendance' },
   { label: 'Dividends', href: '/portal/dividends' },
-  { label: 'Settings', href: '#' }
+  { label: 'Savings', href: '/portal/savings' }
 ]
 
 // Check if a link or any of its children is active

@@ -43,6 +43,12 @@ const routeList = [
     meta: { requiresAuth: true, role: 'admin' },
   },
   {
+    path: '/savings',
+    name: 'savings',
+    component: () => import('@/views/Transaction.vue/Savings.vue'),
+    meta: { requiresAuth: true, role: 'admin' },
+  },
+  {
     path: '/attendance',
     name: 'attendance',
     component: () => import('@/views/Meetings/Attendance.vue'),
@@ -96,6 +102,12 @@ const routeList = [
     path: '/portal/attendance',
     name: 'PortalAttendance',
     component: () => import('@/views/Portal/Attendance.vue'),
+    meta: { requiresAuth: true, role: 'member' },
+  },
+  {
+    path: '/portal/savings',
+    name: 'PortalSavings',
+    component: () => import('@/views/Portal/Savings.vue'),
     meta: { requiresAuth: true, role: 'member' },
   },
 ]
