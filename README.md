@@ -1,44 +1,20 @@
-# dig-coop
+# CoopVault / DCMS
 
-This template should help get you started developing with Vue 3 in Vite.
+A cooperative management system for tracking members, attendance and contributions.
 
-## Recommended IDE Setup
+## Live demo
+https://dig-coop.vercel.app
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
+- Member portal and contribution tracking
+- Attendance records
+- Works offline as a PWA and on mobile screens
 
-## Recommended Browser Setup
+## Built with
+Vue.js, Tailwind CSS, Vite, Local Storage
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Deployment
+Hosted on Vercel and deployed through GitHub.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## Author
+Praise | github.com/PraiseG33
