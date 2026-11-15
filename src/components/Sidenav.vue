@@ -30,7 +30,7 @@ const navLinks = [
       { label: 'Export Data', href: '/export' }
     ]
   },
-  { label: 'Settings', href: '#' }
+  { label: 'Savings', href: '/savings' }
 ]
 
 // Check if a link or any of its children is active
@@ -68,11 +68,25 @@ const logout = () => {
             :key="link.label"
             class="relative group"
           >
-            <!-- Parent link -->
+            <!-- Parent link (real link if it has its own destination, otherwise just a hover-trigger for the dropdown) -->
             <a
-              :href="link.href || '#'"
+              v-if="!link.children"
+              :href="link.href"
               :class="[
                 'flex items-center gap-1 pb-1 relative font-medium transition-colors duration-200',
+                'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300',
+                isActive(link)
+                  ? 'text-green-600 after:w-full after:bg-green-600'
+                  : 'text-gray-700 after:w-0 after:bg-green-600 group-hover:after:w-full hover:text-green-600'
+              ]"
+            >
+              {{ link.label }}
+            </a>
+            <span
+              v-else
+              tabindex="0"
+              :class="[
+                'flex items-center gap-1 pb-1 relative font-medium transition-colors duration-200 cursor-default select-none',
                 'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-300',
                 isActive(link)
                   ? 'text-green-600 after:w-full after:bg-green-600'
@@ -83,7 +97,6 @@ const logout = () => {
 
               <!-- Arrow -->
               <svg
-                v-if="link.children"
                 class="w-4 h-4 mt-1 transition-transform group-hover:rotate-180"
                 fill="none"
                 stroke="currentColor"
@@ -91,7 +104,7 @@ const logout = () => {
               >
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
-            </a>
+            </span>
 
             <!-- Dropdown -->
             <div
